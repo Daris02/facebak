@@ -1,28 +1,43 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Nav, Button } from 'react-bootstrap';
+import React from 'react';
+import { CDBSidebar, CDBSidebarContent, CDBSidebarHeader, CDBSidebarMenu, CDBSidebarMenuItem, CDBSidebarFooter } from 'cdbreact';
+import { Link, Outlet } from 'react-router-dom';
 
 const Navbar = () => {
-	const [isOpen, setIsOpen] = useState(false);
-  
-	const toggleSidebar = () => {
-	  	setIsOpen(!isOpen);
-	};
+  return (
+    <div className="d-flex vh-100">
+      <CDBSidebar>
+			<CDBSidebarHeader prefix={<i className="fa fa-bars" />}>Menu</CDBSidebarHeader>
+			<CDBSidebarContent>
+			<CDBSidebarMenu>
+				<Link to="/user/home" className="text-decoration-none">
+					<CDBSidebarMenuItem icon="th-large">
+						Home
+					</CDBSidebarMenuItem>
+				</Link>
+				<Link to="/user/message" className="text-decoration-none">
+					<CDBSidebarMenuItem icon="sticky-note">
+						Message
+					</CDBSidebarMenuItem>
+				</Link>
+				<Link to="/user/about" className="text-decoration-none">
+					<CDBSidebarMenuItem icon="credit-card" iconType="solid">
+						About
+					</CDBSidebarMenuItem>
+				</Link>
+			</CDBSidebarMenu>
+			</CDBSidebarContent>
 
-    return (
-        <div>
-            <div className={`sidebar ${isOpen ? 'open' : ''}`}>
-				<Button className="sidebar-toggle" variant="light" onClick={toggleSidebar}>
-					Menu
-				</Button>
-				<Nav className="flex-column">
-					<Nav.Link as={Link} to="/home" onClick={toggleSidebar}>Home</Nav.Link>
-					<Nav.Link as={Link} to="/about" onClick={toggleSidebar}>About</Nav.Link>
-					<Nav.Link as={Link} to="/message" onClick={toggleSidebar}>Message</Nav.Link>
-				</Nav>
+			<CDBSidebarFooter style={{ textAlign: 'center' }}>
+			<div className="sidebar-btn-wrapper" style={{padding: '20px 5px'}}>
+				facebak ChatApp
 			</div>
-        </div>
-    );
-}
+			</CDBSidebarFooter>
+		</CDBSidebar>
+		<div className="container">
+			<Outlet />
+		</div>
+    </div>
+  );
+};
 
 export default Navbar;
