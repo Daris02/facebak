@@ -21,7 +21,12 @@ const Navbar = () => {
 				</Link>
 				<Link to="/user/about" className="text-decoration-none">
 					<CDBSidebarMenuItem icon="credit-card" iconType="solid">
-						About
+						About Us
+					</CDBSidebarMenuItem>
+				</Link>
+				<Link to="/" className="text-decoration-none">
+					<CDBSidebarMenuItem icon="credit-card" iconType="solid">
+						Log Out
 					</CDBSidebarMenuItem>
 				</Link>
 			</CDBSidebarMenu>

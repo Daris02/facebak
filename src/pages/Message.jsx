@@ -2,7 +2,7 @@ import React from 'react';
 
 const Message = () => {
     return (
-        <div>
+        <div className="container">
             <h2>Message Page</h2>
         </div>
     );

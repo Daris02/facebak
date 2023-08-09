@@ -1,8 +1,8 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
+// import { useForm } from 'react-hook-form';
 
 const SignUp = () => {
-    const { register, handleSubmit, formState: { errors }, } = useForm({});
+    // const { register, handleSubmit, formState: { errors }, } = useForm({});
 
     return (
         <div className="modal fade" id="signUp" tabIndex="-1" aria-labelledby="signUpLabel" aria-hidden="true">
