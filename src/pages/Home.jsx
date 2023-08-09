@@ -26,17 +26,17 @@ const Home = () => {
                 <div className="container-fluid">
                     <div className="row mt-5">
                         {
-                            posts.map((post) => 
-                                <div key={post.id} className="col-8">
-                                    <div>
-                                        <h3>{post.title}</h3>
-                                    </div>
-                                </div>
-                            )
+                            // posts.map((post) => 
+                            //     <div key={post.id} className="col-8">
+                            //         <div>
+                            //             <h3>{post.title}</h3>
+                            //         </div>
+                            //     </div>
+                            // )
                         }
                         <div className="col-8">
                             <div>
-                                <h3>Title</h3>
+                                <h3>Title 1</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                                     Rerum optio repellat accusantium, saepe sint harum obcaecati 
                                     aspernatur ad officiis itaque, repudiandae impedit. Enim,
@@ -45,7 +45,7 @@ const Home = () => {
                         </div>
                         <div className="col-8">
                             <div>
-                                <h3>Title</h3>
+                                <h3>Title 2</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                                     Rerum optio repellat accusantium, saepe sint harum obcaecati 
                                     aspernatur ad officiis itaque, repudiandae impedit. Enim,
@@ -54,7 +54,7 @@ const Home = () => {
                         </div>
                         <div className="col-8">
                             <div>
-                                <h3>Title</h3>
+                                <h3>Title 3</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                                     Rerum optio repellat accusantium, saepe sint harum obcaecati 
                                     aspernatur ad officiis itaque, repudiandae impedit. Enim,
@@ -63,7 +63,7 @@ const Home = () => {
                         </div>
                         <div className="col-8">
                             <div>
-                                <h3>Title</h3>
+                                <h3>Title 4</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                                     Rerum optio repellat accusantium, saepe sint harum obcaecati 
                                     aspernatur ad officiis itaque, repudiandae impedit. Enim,
@@ -72,7 +72,7 @@ const Home = () => {
                         </div>
                         <div className="col-8">
                             <div>
-                                <h3>Title</h3>
+                                <h3>Title 5</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                                     Rerum optio repellat accusantium, saepe sint harum obcaecati 
                                     aspernatur ad officiis itaque, repudiandae impedit. Enim,
@@ -81,7 +81,7 @@ const Home = () => {
                         </div>
                         <div className="col-8">
                             <div>
-                                <h3>Title</h3>
+                                <h3>Title 6</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                                     Rerum optio repellat accusantium, saepe sint harum obcaecati 
                                     aspernatur ad officiis itaque, repudiandae impedit. Enim,
@@ -90,124 +90,7 @@ const Home = () => {
                         </div>
                         <div className="col-8">
                             <div>
-                                <h3>Title</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Rerum optio repellat accusantium, saepe sint harum obcaecati 
-                                    aspernatur ad officiis itaque, repudiandae impedit. Enim,
-                                    voluptate itaque asperiores cupiditate corporis rerum tempore.</p>
-                            </div>
-                        </div>
-                        <div className="col-8">
-                            <div>
-                                <h3>Title</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Rerum optio repellat accusantium, saepe sint harum obcaecati 
-                                    aspernatur ad officiis itaque, repudiandae impedit. Enim,
-                                    voluptate itaque asperiores cupiditate corporis rerum tempore.</p>
-                            </div>
-                        </div>
-                        <div className="col-8">
-                            <div>
-                                <h3>Title</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Rerum optio repellat accusantium, saepe sint harum obcaecati 
-                                    aspernatur ad officiis itaque, repudiandae impedit. Enim,
-                                    voluptate itaque asperiores cupiditate corporis rerum tempore.</p>
-                            </div>
-                        </div>
-                        <div className="col-8">
-                            <div>
-                                <h3>Title</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Rerum optio repellat accusantium, saepe sint harum obcaecati 
-                                    aspernatur ad officiis itaque, repudiandae impedit. Enim,
-                                    voluptate itaque asperiores cupiditate corporis rerum tempore.</p>
-                            </div>
-                        </div>
-                        <div className="col-8">
-                            <div>
-                                <h3>Title</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Rerum optio repellat accusantium, saepe sint harum obcaecati 
-                                    aspernatur ad officiis itaque, repudiandae impedit. Enim,
-                                    voluptate itaque asperiores cupiditate corporis rerum tempore.</p>
-                            </div>
-                        </div>
-                        <div className="col-8">
-                            <div>
-                                <h3>Title</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Rerum optio repellat accusantium, saepe sint harum obcaecati 
-                                    aspernatur ad officiis itaque, repudiandae impedit. Enim,
-                                    voluptate itaque asperiores cupiditate corporis rerum tempore.</p>
-                            </div>
-                        </div>
-                        <div className="col-8">
-                            <div>
-                                <h3>Title</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Rerum optio repellat accusantium, saepe sint harum obcaecati 
-                                    aspernatur ad officiis itaque, repudiandae impedit. Enim,
-                                    voluptate itaque asperiores cupiditate corporis rerum tempore.</p>
-                            </div>
-                        </div>
-                        <div className="col-8">
-                            <div>
-                                <h3>Title</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Rerum optio repellat accusantium, saepe sint harum obcaecati 
-                                    aspernatur ad officiis itaque, repudiandae impedit. Enim,
-                                    voluptate itaque asperiores cupiditate corporis rerum tempore.</p>
-                            </div>
-                        </div>
-                        <div className="col-8">
-                            <div>
-                                <h3>Title</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Rerum optio repellat accusantium, saepe sint harum obcaecati 
-                                    aspernatur ad officiis itaque, repudiandae impedit. Enim,
-                                    voluptate itaque asperiores cupiditate corporis rerum tempore.</p>
-                            </div>
-                        </div>
-                        <div className="col-8">
-                            <div>
-                                <h3>Title</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Rerum optio repellat accusantium, saepe sint harum obcaecati 
-                                    aspernatur ad officiis itaque, repudiandae impedit. Enim,
-                                    voluptate itaque asperiores cupiditate corporis rerum tempore.</p>
-                            </div>
-                        </div>
-                        <div className="col-8">
-                            <div>
-                                <h3>Title</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Rerum optio repellat accusantium, saepe sint harum obcaecati 
-                                    aspernatur ad officiis itaque, repudiandae impedit. Enim,
-                                    voluptate itaque asperiores cupiditate corporis rerum tempore.</p>
-                            </div>
-                        </div>
-                        <div className="col-8">
-                            <div>
-                                <h3>Title</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Rerum optio repellat accusantium, saepe sint harum obcaecati 
-                                    aspernatur ad officiis itaque, repudiandae impedit. Enim,
-                                    voluptate itaque asperiores cupiditate corporis rerum tempore.</p>
-                            </div>
-                        </div>
-                        <div className="col-8">
-                            <div>
-                                <h3>Title</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Rerum optio repellat accusantium, saepe sint harum obcaecati 
-                                    aspernatur ad officiis itaque, repudiandae impedit. Enim,
-                                    voluptate itaque asperiores cupiditate corporis rerum tempore.</p>
-                            </div>
-                        </div>
-                        <div className="col-8">
-                            <div>
-                                <h3>Title</h3>
+                                <h3>Title 7</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                                     Rerum optio repellat accusantium, saepe sint harum obcaecati 
                                     aspernatur ad officiis itaque, repudiandae impedit. Enim,

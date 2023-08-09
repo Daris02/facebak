@@ -4,10 +4,9 @@ import { Link, Outlet } from 'react-router-dom';
 
 const Navbar = () => {
 	return (
-		<div className="d-flex vh-100">
-			<div id="navbar">
+			<>
 				<CDBSidebar>
-					<CDBSidebarHeader prefix={<i className="fa fa-bars" />}>FACEBAK</CDBSidebarHeader>
+					<CDBSidebarHeader prefix={<i className="fa fa-bars" />} >FACEBAK</CDBSidebarHeader>
 					<CDBSidebarContent>
 						<CDBSidebarMenu>
 							<Link to="/user/home" className="text-decoration-none">
@@ -39,11 +38,7 @@ const Navbar = () => {
 					</div>
 					</CDBSidebarFooter>
 				</CDBSidebar>
-			</div>
-			<div className="container">
-				<Outlet />
-			</div>
-		</div>
+			</>
 	);
 };
 
