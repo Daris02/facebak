@@ -1,5 +1,4 @@
 import React from 'react';
-import { CDBSidebar, CDBSidebarContent, CDBSidebarHeader, CDBSidebarMenu, CDBSidebarMenuItem, CDBSidebarFooter, CDBIcon } from 'cdbreact';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
