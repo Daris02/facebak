@@ -29,19 +29,19 @@ const Navbar = () => {
 									<Link to="/user/home" className="nav-link">
 										<FontAwesomeIcon icon={FA.faPlusCircle} size="lg" />
 									</Link>
-								</li>
+								</li>	
 								<li className="nav-item">
 									<Link to="/user/message" className="nav-link">
 										<FontAwesomeIcon icon={FA.faMessage} /> Chat
 									</Link>
 								</li>
 								<li className="nav-item">
-									<Link to="/user/about" className="nav-link">
+									<Link to="/user/notification" className="nav-link">
 										<FontAwesomeIcon icon={FA.faBell} /> Notification
 									</Link>
 								</li>
 								<li className="nav-item">
-									<Link to="/" className="nav-link disabled">
+									<Link to="/" className="nav-link">
 										<FontAwesomeIcon icon={FA.faSignOutAlt} /> Log Out
 									</Link>
 								</li>

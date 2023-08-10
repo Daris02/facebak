@@ -26,14 +26,14 @@ const Home = () => {
                 <div className="container-fluid">
                     <div className="row mt-5">
                         {
-                            // posts.map((post) => 
-                            //     <div key={post.id} className="col-8">
-                            //         <div>
-                            //             <h3>{post.title}</h3>
-                            //             <p>{post.content}</p>
-                            //         </div>
-                            //     </div>
-                            // )
+                            posts.map((post) =>
+                                <div key={post.id} className="col-8">
+                                    <div>
+                                        <h3>{post.title}</h3>
+                                        <p>{post.content}</p>
+                                    </div>
+                                </div>
+                            )
                         }
                     </div>
                 </div>
