@@ -30,72 +30,101 @@ const Home = () => {
                             //     <div key={post.id} className="col-8">
                             //         <div>
                             //             <h3>{post.title}</h3>
+                            //             <p>{post.content}</p>
                             //         </div>
                             //     </div>
                             // )
                         }
                         <div className="col-8">
-                            <div>
-                                <h3>Title 1</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Rerum optio repellat accusantium, saepe sint harum obcaecati 
-                                    aspernatur ad officiis itaque, repudiandae impedit. Enim,
-                                    voluptate itaque asperiores cupiditate corporis rerum tempore.</p>
-                            </div>
+                            <h3>Title 1</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                Fugit sit ullam cumque quaerat, veniam illo dolore cum unde,
+                                vero exercitationem blanditiis repellendus optio illum voluptatem
+                                expedita id sequi nam explicabo!</p>
                         </div>
                         <div className="col-8">
-                            <div>
-                                <h3>Title 2</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Rerum optio repellat accusantium, saepe sint harum obcaecati 
-                                    aspernatur ad officiis itaque, repudiandae impedit. Enim,
-                                    voluptate itaque asperiores cupiditate corporis rerum tempore.</p>
-                            </div>
+                            <h3>Title 1</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                Fugit sit ullam cumque quaerat, veniam illo dolore cum unde,
+                                vero exercitationem blanditiis repellendus optio illum voluptatem
+                                expedita id sequi nam explicabo!</p>
                         </div>
                         <div className="col-8">
-                            <div>
-                                <h3>Title 3</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Rerum optio repellat accusantium, saepe sint harum obcaecati 
-                                    aspernatur ad officiis itaque, repudiandae impedit. Enim,
-                                    voluptate itaque asperiores cupiditate corporis rerum tempore.</p>
-                            </div>
+                            <h3>Title 1</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                Fugit sit ullam cumque quaerat, veniam illo dolore cum unde,
+                                vero exercitationem blanditiis repellendus optio illum voluptatem
+                                expedita id sequi nam explicabo!</p>
                         </div>
                         <div className="col-8">
-                            <div>
-                                <h3>Title 4</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Rerum optio repellat accusantium, saepe sint harum obcaecati 
-                                    aspernatur ad officiis itaque, repudiandae impedit. Enim,
-                                    voluptate itaque asperiores cupiditate corporis rerum tempore.</p>
-                            </div>
+                            <h3>Title 1</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                Fugit sit ullam cumque quaerat, veniam illo dolore cum unde,
+                                vero exercitationem blanditiis repellendus optio illum voluptatem
+                                expedita id sequi nam explicabo!</p>
                         </div>
                         <div className="col-8">
-                            <div>
-                                <h3>Title 5</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Rerum optio repellat accusantium, saepe sint harum obcaecati 
-                                    aspernatur ad officiis itaque, repudiandae impedit. Enim,
-                                    voluptate itaque asperiores cupiditate corporis rerum tempore.</p>
-                            </div>
+                            <h3>Title 1</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                Fugit sit ullam cumque quaerat, veniam illo dolore cum unde,
+                                vero exercitationem blanditiis repellendus optio illum voluptatem
+                                expedita id sequi nam explicabo!</p>
                         </div>
                         <div className="col-8">
-                            <div>
-                                <h3>Title 6</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Rerum optio repellat accusantium, saepe sint harum obcaecati 
-                                    aspernatur ad officiis itaque, repudiandae impedit. Enim,
-                                    voluptate itaque asperiores cupiditate corporis rerum tempore.</p>
-                            </div>
+                            <h3>Title 1</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                Fugit sit ullam cumque quaerat, veniam illo dolore cum unde,
+                                vero exercitationem blanditiis repellendus optio illum voluptatem
+                                expedita id sequi nam explicabo!</p>
                         </div>
                         <div className="col-8">
-                            <div>
-                                <h3>Title 7</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Rerum optio repellat accusantium, saepe sint harum obcaecati 
-                                    aspernatur ad officiis itaque, repudiandae impedit. Enim,
-                                    voluptate itaque asperiores cupiditate corporis rerum tempore.</p>
-                            </div>
+                            <h3>Title 1</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                Fugit sit ullam cumque quaerat, veniam illo dolore cum unde,
+                                vero exercitationem blanditiis repellendus optio illum voluptatem
+                                expedita id sequi nam explicabo!</p>
+                        </div>
+                        <div className="col-8">
+                            <h3>Title 1</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                Fugit sit ullam cumque quaerat, veniam illo dolore cum unde,
+                                vero exercitationem blanditiis repellendus optio illum voluptatem
+                                expedita id sequi nam explicabo!</p>
+                        </div>
+                        <div className="col-8">
+                            <h3>Title 1</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                Fugit sit ullam cumque quaerat, veniam illo dolore cum unde,
+                                vero exercitationem blanditiis repellendus optio illum voluptatem
+                                expedita id sequi nam explicabo!</p>
+                        </div>
+                        <div className="col-8">
+                            <h3>Title 1</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                Fugit sit ullam cumque quaerat, veniam illo dolore cum unde,
+                                vero exercitationem blanditiis repellendus optio illum voluptatem
+                                expedita id sequi nam explicabo!</p>
+                        </div>
+                        <div className="col-8">
+                            <h3>Title 1</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                Fugit sit ullam cumque quaerat, veniam illo dolore cum unde,
+                                vero exercitationem blanditiis repellendus optio illum voluptatem
+                                expedita id sequi nam explicabo!</p>
+                        </div>
+                        <div className="col-8">
+                            <h3>Title 1</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                Fugit sit ullam cumque quaerat, veniam illo dolore cum unde,
+                                vero exercitationem blanditiis repellendus optio illum voluptatem
+                                expedita id sequi nam explicabo!</p>
+                        </div>
+                        <div className="col-8">
+                            <h3>Title 1</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                Fugit sit ullam cumque quaerat, veniam illo dolore cum unde,
+                                vero exercitationem blanditiis repellendus optio illum voluptatem
+                                expedita id sequi nam explicabo!</p>
                         </div>
                     </div>
                 </div>

@@ -1,44 +1,45 @@
 import React from 'react';
 import { CDBSidebar, CDBSidebarContent, CDBSidebarHeader, CDBSidebarMenu, CDBSidebarMenuItem, CDBSidebarFooter, CDBIcon } from 'cdbreact';
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 	return (
-			<>
-				<CDBSidebar>
-					<CDBSidebarHeader prefix={<i className="fa fa-bars" />} >FACEBAK</CDBSidebarHeader>
-					<CDBSidebarContent>
-						<CDBSidebarMenu>
-							<Link to="/user/home" className="text-decoration-none">
-								<CDBSidebarMenuItem icon="home">
-									Home
-								</CDBSidebarMenuItem>
+		<>
+			<nav class="navbar navbar-expand-lg bg-body-tertiary">
+				<div class="container-fluid">
+					<Link to="/user/home" className="navbar-brand">
+							Logo
+					</Link>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<Link to="/user/home" className="nav-link">
+								Home
 							</Link>
-							<Link to="/user/message" className="text-decoration-none">
-								<CDBSidebarMenuItem icon="comments">
-									Message
-								</CDBSidebarMenuItem>
+						</li>
+						<li class="nav-item">
+							<Link to="/user/message" className="nav-link">
+								Message
 							</Link>
-							<Link to="/user/about" className="text-decoration-none">
-								<CDBSidebarMenuItem icon="info">
-									About Us
-								</CDBSidebarMenuItem>
+						</li>
+						<li class="nav-item">
+							<Link to="/user/about" className="nav-link">
+								About Us
 							</Link>
-							<Link to="/" className="text-decoration-none">
-								<CDBSidebarMenuItem icon="user">
-									Log Out
-								</CDBSidebarMenuItem>
+						</li>
+						<li class="nav-item">
+							<Link to="/" className="nav-link disabled">
+								Log Out
 							</Link>
-						</CDBSidebarMenu>
-					</CDBSidebarContent>
-
-					<CDBSidebarFooter style={{ textAlign: 'center' }}>
-					<div className="sidebar-btn-wrapper" style={{padding: '20px 5px'}}>
-						ChatApp
+						</li>
+					</ul>
 					</div>
-					</CDBSidebarFooter>
-				</CDBSidebar>
-			</>
+				</div>
+			</nav>
+		</>
 	);
 };
 
