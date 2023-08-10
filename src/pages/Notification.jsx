@@ -1,6 +1,6 @@
 import React from 'react';
 
-const About = () => {
+const Notification = () => {
     return (
         <div className="container">
             <h2>Notification</h2>
@@ -8,4 +8,4 @@ const About = () => {
     );
 }
 
-export default About;
+export default Notification;

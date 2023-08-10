@@ -5,7 +5,7 @@ import SignUp from './SignUp';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Message from './pages/Message';
-import About from './pages/About';
+import Notification from './pages/Notification';
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
 				<Route path='/user' element={<Header />}>
 					<Route path='/user/home' element={<Home />} />
 					<Route path='/user/message' element={<Message />} />
-					<Route path='/user/about' element={<About />} />
+					<Route path='/user/notification' element={<Notification />} />
 				</Route>
 			</Routes>
 		</>
