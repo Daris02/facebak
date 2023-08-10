@@ -1,23 +1,23 @@
-import React from "react";
-import { useForm } from "react-hook-form";
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import SignUp from './SignUp';
+import { authUser } from './apis/user/user.apis';
 
 const Login = () => {
 	const { register, handleSubmit, formState: { errors }, } = useForm({});
 
 	const onSubmit = (data) => {
-		window.location.replace('/user/home')
-		// loginUser(data);
-		// const status = loginUser(data);
-		// status.then(res => {
-		//     if(res.status == 200) {
-		//         window.location = '/receptioniste/dashboard'
-		//     } else {
-		//         alert('Identifiant invalid')
-		//     }
-		// }).catch(e => {
-		//     alert('Error serveur : ' e)
-		// });
+		const status = authUser(data);
+		status.then(res => {
+		    if(res.status === 200) {
+		        window.location = '/user/home'
+		    } else {
+		        alert('Identified invalid')
+				// window.location.replace('/user/home')
+		    }
+		}).catch(e => {
+		    alert('Error server : ' + e);
+		});
 	};
 
 	return (
@@ -26,9 +26,8 @@ const Login = () => {
 				<form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column gap-2">
 					<h3 className="text-center">Sign In</h3>
 					<div className="mb-2">
-						<label htmlFor="user_email">Email</label>
-						<input type="email" name="user_email" className="form-control" {...register("user_email", { required: true })}/>
-						{ errors.name && ( <span className="text-danger">Emal required /!\</span>) }
+						<label htmlFor="email">Email</label>
+						<input type="email" name="email" className="form-control" {...register("email", { required: true })}/>
 					</div>
 					<div className="mb-2">
 						<label htmlFor="password">Password</label>
@@ -39,14 +38,14 @@ const Login = () => {
 						<label htmlFor="check" className="custom-input-label ms-2">Remember me</label>
 					</div>
 					<div className="d-grid">
-						<button type="submit" className="btn btn-primary">Sign in</button>
+						<button type="submit" className="btn btn-outline-primary">Sign in</button>
 					</div>
+					<hr />
 					<p className="text-center my-2">
 						<a className="text-decoration-none" href="#">Forgot Password</a>
 					</p>
-					<hr />
 					<div className="d-grid">
-						<button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#signUp">Sign Up</button>
+						<button type="button" className="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#signUp">Sign Up</button>
 					</div>
 					<SignUp />
 				</form>
