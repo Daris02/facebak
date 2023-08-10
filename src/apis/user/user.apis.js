@@ -1,8 +1,22 @@
 import axios from 'axios';
 const baseURL = 'http://localhost:8080';
 
-export function getAllUsers() {
-    
+export async function getAllUsers() {
+    try {
+        const { data } = await axios.get(`${baseURL}/users`);
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export async function authUser({email, password}) {
+    try {
+        const { data } = await axios.post(`${baseURL}/users`, {email, password});
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 export async function addUser() {
@@ -18,15 +32,6 @@ export async function addUser() {
         //     "bio": null,
         //     "photo": null
         // }
-        return data;
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-export async function authUser(loginData) {
-    try {
-        const { data } = await axios.post(`${baseURL}/users`);
         return data;
     } catch (error) {
         console.log(error);
