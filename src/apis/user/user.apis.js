@@ -19,9 +19,17 @@ export async function authUser({email, password}) {
     }
 }
 
-export async function addUser() {
+export async function addUser({email, password, confirmPassword, username}) {
     try {
-        const { data } = await axios.post(`${baseURL}/users`);
+        const { data } = await axios.post(
+            `${baseURL}/users`,
+            {
+                email,
+                password,
+                confirmPassword,
+                username
+            }
+        );
         // Forme data :
         // {
         //     "email": "jane.smith@gmail.com",
