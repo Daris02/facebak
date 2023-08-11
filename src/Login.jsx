@@ -3,22 +3,23 @@ import { useForm } from 'react-hook-form';
 import SignUp from './SignUp';
 import { authUser } from './apis/user/user.apis';
 
-const Login = () => {
-	const { register, handleSubmit, formState: { errors }, } = useForm({});
+const Login = ({ user, setUser }) => {
+	const { register, handleSubmit } = useForm({});
 
-	const onSubmit = (data) => {
-		const status = authUser(data);
-		status.then(res => {
-		    if(res.status === 200) {
+	const onSubmit = (data) => {;
+		authUser(data).then(res => {
+			console.log(res);
+			if(res.id) {
+				setUser({...user, res});
 		        window.location = '/user/home'
-		    } else {
-		        alert('Identified invalid')
-				// window.location.replace('/user/home')
 		    }
 		}).catch(e => {
-		    alert('Error server : ' + e);
+		    if (e) {
+		        alert('Authentification failed')
+			}
 		});
 	};
+	console.log("User -> Login : " + user);
 
 	return (
 		<div className="login d-flex justify-content-center align-items-center vh-100 bg-primary-ligth">
@@ -40,9 +41,10 @@ const Login = () => {
 					<div className="d-grid">
 						<button type="submit" className="btn btn-outline-primary">Sign in</button>
 					</div>
+					{/* <span className="text-center text-danger">Fail authentification</span> */}
 					<hr />
 					<p className="text-center my-2">
-						<a className="text-decoration-none" href="#">Forgot Password</a>
+						<a className="text-decoration-none disabled" href="/">Forgot Password</a>
 					</p>
 					<div className="d-grid">
 						<button type="button" className="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#signUp">Sign Up</button>

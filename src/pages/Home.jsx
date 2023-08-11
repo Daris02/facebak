@@ -8,7 +8,6 @@ const Home = () => {
         const fetchData = async () => {
             try {
                 const data = await getAllPosts();
-                console.log(data);
                 setPosts(data);
             } catch (error) {
                 console.error("Une erreur s'est produite :", error);
@@ -22,7 +21,7 @@ const Home = () => {
     return (
         <>
             <div className="container mt-5">
-                <h2>Home page : Post</h2>
+                <h2>News </h2>
                 <div className="container-fluid">
                     <div className="row mt-5">
                         {

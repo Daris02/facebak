@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as FA from '@fortawesome/free-solid-svg-icons'
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
+	console.log("User -> Navbar : " + user);
+
 	return (
 		<>
 			<nav className="navbar navbar-expand-lg bg-body-tertiary">
 				<div className="d-flex justify-content-between w-100">
 					<div className="w-25">
 						<Link to="/user/home" className="navbar-brand">
-								Logo
+								Logo {user.username}
 						</Link>
 					</div>
 					<div className="w-25">

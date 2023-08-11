@@ -12,7 +12,7 @@ export async function getAllUsers() {
 
 export async function authUser({email, password}) {
     try {
-        const { data } = await axios.post(`${baseURL}/users`, {email, password});
+        const { data } = await axios.post(`${baseURL}/users/auth`, {email, password});
         return data;
     } catch (error) {
         console.log(error);
