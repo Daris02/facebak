@@ -6,6 +6,9 @@ import { authUser } from './apis/user/user.apis';
 const Login = ({ user, setUser }) => {
 	const { register, handleSubmit } = useForm({});
 
+	let border = "p-5 rounded bg-white border border-primary";
+	let errorMessage = "";
+
 	const onSubmit = (data) => {;
 		authUser(data).then(res => {
 			console.log(res);
@@ -15,6 +18,12 @@ const Login = ({ user, setUser }) => {
 		    }
 		}).catch(e => {
 		    if (e) {
+				border = "p-5 rounded bg-white border border-danger";
+				errorMessage = "Fail authentification";
+				setTimeout(() => {
+					border = "p-5 rounded bg-white border border-primary";
+					errorMessage = "";
+				}, 1500);
 		        alert('Authentification failed')
 			}
 		});
@@ -23,7 +32,7 @@ const Login = ({ user, setUser }) => {
 
 	return (
 		<div className="login d-flex justify-content-center align-items-center vh-100 bg-primary-ligth">
-			<div className="p-5 rounded bg-white border border-primary">
+			<div className={border}>
 				<form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column gap-2">
 					<h3 className="text-center">Sign In</h3>
 					<div className="mb-2">
@@ -41,7 +50,7 @@ const Login = ({ user, setUser }) => {
 					<div className="d-grid">
 						<button type="submit" className="btn btn-outline-primary">Sign in</button>
 					</div>
-					{/* <span className="text-center text-danger">Fail authentification</span> */}
+					<span className="text-center text-danger">{errorMessage}</span>
 					<hr />
 					<p className="text-center my-2">
 						<a className="text-decoration-none disabled" href="/">Forgot Password</a>
