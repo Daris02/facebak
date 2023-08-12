@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { useForm } from 'react-hook-form';
-import SignUp from './SignUp';
 import { authUser } from './apis/user/user.apis';
 
 const Login = ({ user, setUser }) => {
@@ -9,7 +9,7 @@ const Login = ({ user, setUser }) => {
 	let border = "p-5 rounded bg-white border border-primary";
 	let errorMessage = "";
 
-	const onSubmit = (data) => {;
+	const onSubmit = (data) => {
 		authUser(data).then(res => {
 			console.log(res);
 			if(res.id) {
@@ -56,9 +56,10 @@ const Login = ({ user, setUser }) => {
 						<a className="text-decoration-none disabled" href="/">Forgot Password</a>
 					</p>
 					<div className="d-grid">
-						<button type="button" className="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#signUp">Sign Up</button>
+						<Link to="/signup">
+							<button type="button" className="btn btn-outline-warning w-100">Sign Up</button>
+						</Link>
 					</div>
-					<SignUp />
 				</form>
 			</div>
 		</div>
