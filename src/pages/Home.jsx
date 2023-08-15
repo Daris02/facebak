@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getAllPosts } from '../apis/post/post.api.js';
+import Post from "../components/Post";
 
 const Home = () => {
     const [posts, setPosts] = useState([{}]);
@@ -22,7 +23,7 @@ const Home = () => {
         <>
             <div className="container mt-5">
                 <h2>News </h2>
-                <div className="container-fluid">
+                <div className="container-fluid w-50">
                     <div className="row mt-5">
                         {
                             posts.map((post) =>
@@ -34,6 +35,7 @@ const Home = () => {
                                 </div>
                             )
                         }
+                        <Post />
                     </div>
                 </div>
             </div>
