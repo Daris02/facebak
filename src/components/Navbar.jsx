@@ -11,7 +11,7 @@ const Navbar = ({ user }) => {
 				<div className="d-flex justify-content-between w-100">
 					<div className="w-25">
 						<Link to="/user/home" className="navbar-brand">
-								Logo
+							FACEBAK
 						</Link>
 					</div>
 					<div className="w-25">
