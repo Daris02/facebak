@@ -19,7 +19,7 @@ export default function Post({ post }) {
 							<div className="avatar position-relative">
 								<img
 									className="rounded-circle"
-									src={Avatar}
+									src={post.user.photo}
 									alt="Profile"
 									width="48"
 									height="48"
@@ -102,7 +102,7 @@ export default function Post({ post }) {
 						/>
 						<div className="d-flex">
 							<button className="btn btn-primary px-2 px-sm-5 px-lg-6">
-							<FontAwesomeIcon icon={faShare} />
+								<FontAwesomeIcon icon={faShare} />
 							</button>
 						</div>
 					</div>
