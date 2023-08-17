@@ -7,7 +7,7 @@ const Navbar = ({ user }) => {
 
 	return (
 		<>
-			<nav className="navbar navbar-expand-lg bg-body-tertiary">
+			<nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
 				<div className="d-flex justify-content-between w-100">
 					<div className="w-25">
 						<Link to="/user/home" className="navbar-brand">
