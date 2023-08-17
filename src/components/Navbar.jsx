@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as FA from '@fortawesome/free-solid-svg-icons'
 
 const Navbar = ({ user }) => {
-	console.log("User -> Navbar : " + user);
 
 	return (
 		<>
@@ -12,7 +11,7 @@ const Navbar = ({ user }) => {
 				<div className="d-flex justify-content-between w-100">
 					<div className="w-25">
 						<Link to="/user/home" className="navbar-brand">
-								Logo {user.username}
+								Logo
 						</Link>
 					</div>
 					<div className="w-25">

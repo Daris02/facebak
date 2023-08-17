@@ -2,10 +2,10 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import { Outlet } from 'react-router-dom';
 
-const Header = ({ user }) => {
+const Header = () => {
     return (
         <div>
-            <Navbar user={user} />
+            <Navbar />
             <Outlet />
         </div>
     );

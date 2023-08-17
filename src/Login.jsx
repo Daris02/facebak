@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import { authUser } from './apis/user/user.apis';
 
-const Login = ({ user, setUser }) => {
+const Login = () => {
 	const { register, handleSubmit } = useForm({});
 
 	let border = "p-5 rounded bg-white border border-primary";
@@ -13,22 +13,20 @@ const Login = ({ user, setUser }) => {
 		authUser(data).then(res => {
 			console.log(res);
 			if(res.id) {
-				setUser({...user, res});
 		        window.location = '/user/home'
 		    }
 		}).catch(e => {
 		    if (e) {
 				border = "p-5 rounded bg-white border border-danger";
-				errorMessage = "Fail authentification";
+				errorMessage = "Fail authentication";
 				setTimeout(() => {
 					border = "p-5 rounded bg-white border border-primary";
 					errorMessage = "";
 				}, 1500);
-		        alert('Authentification failed')
+		        alert('Authentication failed')
 			}
 		});
 	};
-	console.log("User -> Login : " + user);
 
 	return (
 		<div className="login d-flex justify-content-center align-items-center vh-100 bg-primary-ligth">

@@ -9,10 +9,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp, faComment } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-export default function Post() {
+export default function Post({ post }) {
   return (
-    <>
-		<div className="d-flex flex-column gap-5 md-7">
+		<div className="col-8d-flex flex-column gap-5 md-7">
 			<div className="post-single-box p-3 p-sm-5">
 				<div className="pb-5 top-area">
 					<div className="d-flex justify-content-between">
@@ -27,7 +26,7 @@ export default function Post() {
 								/>
 							</div>
 							<div className="text-start">
-								<h6 className="m-0">Harena Sarobidy</h6>
+								<h6 className="m-0">{post.user.username}</h6>
 								<span className="text-secondary">Active</span>
 							</div>
 						</div>
@@ -76,15 +75,10 @@ export default function Post() {
 						</div>
 					</div>
 					<div className="text-wrap overflow-hidden text-start w-100">
-					{/* <p>
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-						Aliquam voluptatibus quis, saepe a perspiciatis accusantium
-						aliquid incidunt eveniet autem possimus. Magnam aut provident,
-						labore atque saepe sed placeat debitis ipsa!
-					</p> */}
+					<p className="my-3">{post.content}</p>
 					</div>
 				</div>
-				<div className="like-comment-share py-5 d-flex align-items-center flex-wrap gap-3 gap-md-0 justify-content-between">
+				<div className="like-comment-share d-flex align-items-center flex-wrap gap-3 gap-md-0 justify-content-between">
 					<button className="btn d-flex align-items-center gap-1 gap-sm-2 text-secondary">
 						<FontAwesomeIcon icon={faThumbsUp} />
 						Like
@@ -99,7 +93,7 @@ export default function Post() {
 					</button>
 				</div>
 				<form action="#" className="my-0">
-					<div className="d-flex mt-5 gap-3">
+					<div className="d-flex gap-3">
 						<input
 							type="text"
 							placeholder="write a comment..."
@@ -115,6 +109,5 @@ export default function Post() {
 				</form>
 			</div>
 		</div>
-    </>
   );
 }

@@ -17,7 +17,9 @@ const Home = () => {
 
         fetchData();
 
-    }, []);
+    }, [posts]);
+
+
 
     return (
         <>
@@ -26,16 +28,10 @@ const Home = () => {
                 <div className="container-fluid w-50">
                     <div className="row mt-5">
                         {
-                            posts.map((post) =>
-                                <div key={post.id} className="col-8">
-                                    <div>
-                                        <h3>{post.title}</h3>
-                                        <p>{post.content}</p>
-                                    </div>
-                                </div>
-                            )
+                            posts.map((post) => (
+                                !post.user ? <div className="text-center text-primary">Loading...</div> : <Post key={post.id} post={post}/>
+                            ))
                         }
-                        <Post />
                     </div>
                 </div>
             </div>
