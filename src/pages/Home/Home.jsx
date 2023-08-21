@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getAllPosts } from '../apis/post/post.api.js';
-import Post from "../components/Post";
+import { getAllPosts } from '../../apis/post/post.api.js';
+import Post from "../../components/Post";
 
 const Home = () => {
     const [posts, setPosts] = useState([{}]);

@@ -1,14 +1,8 @@
 import React from "react";
-import Avatar from "../img/Harena-anime1.png";
-import {
-  faBan,
-  faBookmark,
-  faEllipsis,
-  faFlag,
-  faShare,
-} from "@fortawesome/free-solid-svg-icons";
+import { faBan, faBookmark, faEllipsis, faFlag, faShare } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp, faComment } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export default function Post({ post }) {
   return (
 		<div className="col-8d-flex flex-column gap-5 md-7">

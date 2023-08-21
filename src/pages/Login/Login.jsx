@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { useForm } from 'react-hook-form';
-import { authUser } from './apis/user/user.apis';
+import { authUser } from '../../apis/user/user.apis';
 
 const Login = () => {
 	const { register, handleSubmit } = useForm({});

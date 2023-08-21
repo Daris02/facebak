@@ -1,11 +1,11 @@
 import React from 'react';
-import Login from './Login';
+import Login from './pages/Login/Login';
 import { Routes, Route } from 'react-router-dom';
-import SignUp from './SignUp';
-import Header from './components/Header';
-import Home from './pages/Home';
-import Message from './pages/Message';
-import Notification from './pages/Notification';
+import SignUp from './pages/Login/SignUp';
+import Header from './components/Header/Header';
+import Home from './pages/Home/Home';
+import Message from './pages/Message/Message';
+import Notification from './pages/Notification/Notification';
 
 function App() {
 

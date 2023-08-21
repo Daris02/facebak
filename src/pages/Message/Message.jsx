@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { getAllUsers } from "../apis/user/user.apis";
+import { getAllUsers } from "../../apis/user/user.apis";
 import { Container, Row, Col, ListGroup, Card, Form, Button } from 'react-bootstrap';
 
 const Message = () => {
