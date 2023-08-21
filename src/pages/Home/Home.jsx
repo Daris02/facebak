@@ -22,8 +22,8 @@ const Home = () => {
     return (
         <>
             <div className="container mt-5">
-                <h2>News </h2>
-                <div className="container-fluid w-50">
+                {/* <h2>News </h2> */}
+                <div className="mt-5 container-fluid w-50">
                     <div className="row mt-5">
                         {
                             posts.map((post) => (

@@ -4,7 +4,7 @@ import { faThumbsUp, faComment } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Post({ post }) {
-  return (
+  	return (
 		<div className="col-8d-flex flex-column gap-5 md-7">
 			<div className="post-single-box p-3 p-sm-5">
 				<div className="pb-5 top-area">
@@ -103,5 +103,5 @@ export default function Post({ post }) {
 				</form>
 			</div>
 		</div>
-  );
+  	);
 }
