@@ -6,23 +6,15 @@ const Home = () => {
     const [posts, setPosts] = useState([{}]);
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const data = await getAllPosts();
-                setPosts(data);
-            } catch (error) {
-                console.error("Une erreur s'est produite :", error);
-            }
-        }
-
-        fetchData();
-
+        getAllPosts()
+            .then(data => setPosts(data))
+            .catch(err => console.log(err));
     }, []);
 
     return (
         <>
             <div className="container mt-5">
-                {/* <h2>News </h2> */}
+                <h2>Posts</h2>
                 <div className="mt-5 container-fluid w-50">
                     <div className="row mt-5">
                         {
