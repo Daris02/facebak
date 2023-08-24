@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { faBan, faBookmark, faEllipsis, faFlag, faShare } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp, faComment } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { getReactionByIdPost } from "../apis/reaction/reaction.api";
 
 export default function Post({ post }) {
+	const [like, setLike] = useState(0);
+
+	useEffect(() => {
+		getReactionByIdPost(post.id)
+			.then(data => setLike(data.length))
+			.catch(err => console.log(err))
+    }, []);
+
+	const handleUpdateReaction = (ev) => {
+		ev.preventDefault();
+		alert("Change reaction !!!")
+	}
+
   	return (
 		<div className="col-8d-flex flex-column gap-5 md-7">
 			<div className="post-single-box p-3 p-sm-5">
@@ -73,7 +87,8 @@ export default function Post({ post }) {
 					</div>
 				</div>
 				<div className="like-comment-share d-flex align-items-center flex-wrap gap-3 gap-md-0 justify-content-between">
-					<button className="btn d-flex align-items-center gap-1 gap-sm-2 text-secondary">
+					<button onClick={handleUpdateReaction} className="btn d-flex align-items-center gap-1 gap-sm-2 text-secondary">
+						{like === 0 ? "" : like}
 						<FontAwesomeIcon icon={faThumbsUp} />
 						Like
 					</button>
