@@ -86,9 +86,9 @@ export default function Post({ post }) {
 					<p className="my-3">{post.content}</p>
 					</div>
 				</div>
+					{like === 0 ? "" : "👍 "+like}
 				<div className="like-comment-share d-flex align-items-center flex-wrap gap-3 gap-md-0 justify-content-between">
 					<button onClick={handleUpdateReaction} className="btn d-flex align-items-center gap-1 gap-sm-2 text-secondary">
-						{like === 0 ? "" : like}
 						<FontAwesomeIcon icon={faThumbsUp} />
 						Like
 					</button>
