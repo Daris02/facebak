@@ -7,23 +7,21 @@ const SignUp = () => {
     const { register, handleSubmit, formState: { errors }, } = useForm({});
 
     const onSubmit = (data) => {
-        alert(data)
-        // addUser(data).then(res => {
-        //     if(res.status === 200) {
-        //         alert("User added successfully!")
-        //     } else {
-        //         alert('User not create')
-        //     }
-        // }).catch(e => {
-        //     alert('Error server : ' + e);
-        // });
+        addUser(data).then(res => {
+            if(res.id) {
+                alert("Sign Up Successfully!")
+		        window.location = '/'
+            } else {
+                alert('Sign Up Failed!')
+            }
+        }).catch(e => console.log('Error server : ' + e));
     };
 
     return (
 		<div className="login d-flex justify-content-center align-items-center vh-100 bg-primary-ligth">
             <div className="p-5 rounded bg-white border border-warning">
                 <form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column gap-2">
-                    <h2 className="text-center">Create new account</h2>
+                    <h2 className="text-center py-2">Sign Up <br /> To Facebak</h2>
                     <div className="mb-2">
                         <label >User name</label>
                         <input type="text" className="form-control" {...register("username", { required: true })}/>
