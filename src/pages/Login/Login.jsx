@@ -12,9 +12,9 @@ const Login = () => {
 	const onSubmit = (data) => {
 		authUser(data).then(res => {
 			console.log(res);
-			if(res.id) {
-		        window.location = '/user/home'
-		    }
+			// if(res.id) {
+		    //     window.location = '/user/home'
+		    // }
 		}).catch(e => {
 		    if (e) {
 				border = "p-5 rounded bg-white border border-danger";
@@ -33,6 +33,10 @@ const Login = () => {
 			<div className={border}>
 				<form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column gap-2">
 					<h3 className="text-center">Sign In</h3>
+					<div className="mb-2">
+						<label htmlFor="username">User name</label>
+						<input type="username" name="username" className="form-control" {...register("username", { required: true })}/>
+					</div>
 					<div className="mb-2">
 						<label htmlFor="email">Email</label>
 						<input type="email" name="email" className="form-control" {...register("email", { required: true })}/>
