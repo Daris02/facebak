@@ -12,9 +12,9 @@ const Login = () => {
 	const onSubmit = (data) => {
 		authUser(data).then(res => {
 			console.log(res);
-			// if(res.id) {
-		    //     window.location = '/user/home'
-		    // }
+			if(res.id) {
+		        window.location = '/user/home'
+		    }
 		}).catch(e => {
 		    if (e) {
 				border = "p-5 rounded bg-white border border-danger";
