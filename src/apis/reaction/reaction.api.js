@@ -1,34 +1,13 @@
-import axios from 'axios';
-const baseURL = 'http://localhost:8080';
+import { Delete, Get, Post } from '../baseApi';
 
 export async function getReactionByIdPost(idPost) {
-    try {
-        const { data } = await axios.get(`${baseURL}/posts/${idPost}/reactions`);
-        return data;
-    } catch (error) {
-        console.log(error);
-    }
+    return Get(`/posts/${idPost}/reactions`, null);
 }
 
 export async function addReaction(idUser, idPost, reactionType) {
-    try {
-        const { data } = await axios.post(`${baseURL}/posts/${idPost}/reactions`, {
-            userId: idUser,
-            type: reactionType
-        });
-        return data;
-    } catch (error) {
-        console.log(error);
-    }
+    return Post(`/posts/${idPost}/reactions`, {userId: idUser, type: reactionType});
 }
 
 export async function deleteReaction(idUser, idPost) {
-    try {
-        const { data } = await axios.delete(`${baseURL}/posts/${idPost}/reactions`, {
-            userId: idUser
-        });
-        return data;
-    } catch (error) {
-        console.log(error);
-    }
+    return Delete(`/posts/${idPost}/reactions`, {userId: idUser})
 }
