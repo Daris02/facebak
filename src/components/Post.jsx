@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { faBan, faBookmark, faEllipsis, faFlag, faShare } from "@fortawesome/free-solid-svg-icons";
+import { faBan, faBookmark, faEllipsis, faFlag, faShare, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp, faComment } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { getReactionByIdPost } from "../apis/reaction/reaction.api";
+import { addReaction, deleteReaction, getReactionByIdPost } from "../apis/reaction/reaction.api";
+import CurrentUserInfo from "../util/Token";
 
 export default function Post({ post }) {
 	const [like, setLike] = useState(0);
@@ -10,12 +11,29 @@ export default function Post({ post }) {
 	useEffect(() => {
 		getReactionByIdPost(post.id)
 			.then(data => setLike(data.length))
-			.catch(err => console.log(err))
-    }, []);
+			.catch(err => console.log(err));
+		
+    }, [post.id]);
 
 	const handleUpdateReaction = (ev) => {
 		ev.preventDefault();
-		alert("Change reaction !!!")
+		let reaction;
+		getReactionByIdPost(post.id)
+			.then(data => {
+				const user = CurrentUserInfo();
+
+				reaction = data[0];
+
+				if (data && reaction.userId == user.id) {
+					alert("delete")
+					deleteReaction(user.id, post.id);
+				} else {
+					alert("add")
+					addReaction(user.id, post.id, "LIKE");
+				}
+			})
+			.catch(err => console.log(err));
+		
 	}
 
   	return (
