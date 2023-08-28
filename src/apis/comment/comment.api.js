@@ -5,5 +5,5 @@ export async function getCommentByIdPost(postId) {
 }
 
 export async function putCommentByIdPost({postId, userId, content}) {
-    return Put(`/posts/${postId}/comments`, {postId, userId, content});
+    return Put(`/posts/${postId}/comments`, {content, userId});
 }
