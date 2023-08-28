@@ -10,7 +10,7 @@ const Navbar = ({ user }) => {
 			<nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
 				<div className="d-flex justify-content-between w-100">
 					<div className="w-25">
-						<Link to="/user/profil" className="navbar-brand">
+						<Link to="/user/home" className="navbar-brand">
 							FACEBAK
 						</Link>
 					</div>
@@ -27,7 +27,7 @@ const Navbar = ({ user }) => {
 						<div className="collapse navbar-collapse" id="navbarNav">
 							<ul className="navbar-nav">
 								<li className="nav-item">
-									<Link to="/user/home" className="nav-link">
+									<Link to="/user/createpost" className="nav-link">
 										<FontAwesomeIcon icon={FA.faPlusCircle} size="lg" />
 									</Link>
 								</li>	
