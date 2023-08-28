@@ -4,12 +4,17 @@ import { faThumbsUp, faComment } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { addReaction, deleteReaction, getReactionByIdPost } from "../apis/reaction/reaction.api";
 import CurrentUserInfo from "../util/Token";
-import { getCommentByIdPost } from "../apis/comment/comment.api";
+import { getCommentByIdPost, putCommentByIdPost } from "../apis/comment/comment.api";
+import { useForm } from "react-hook-form";
 
 export default function Post({ post }) {
 	const [like, setLike] = useState([]);
 	const [comment, setComment] = useState([]);
 	const [isDropdownVisible, setDropdownVisible] = useState(false);
+
+    const { register, handleSubmit, formState: { errors }, } = useForm({});
+
+	const user = CurrentUserInfo();
 
 	useEffect(() => {
 		getReactionByIdPost(post.id)
@@ -23,7 +28,6 @@ export default function Post({ post }) {
 	useEffect(() => {
 		getCommentByIdPost(post.id)
 			.then(data => {
-				console.log(data);
 				setComment(data);
 			})
 			.catch(err => console.log(err));
@@ -32,7 +36,6 @@ export default function Post({ post }) {
 
 	const handleUpdateReaction = (ev) => {
 		ev.preventDefault();
-		const user = CurrentUserInfo();
 		let haveReaction = false;
 
 		for (let i = 0; i < like.length; i++) {
@@ -52,10 +55,20 @@ export default function Post({ post }) {
 		setDropdownVisible(!isDropdownVisible)
 	}
 
+	const onSubmit = (data) => {
+		const _data = {postId: post.id,
+			content: data.content,
+			userId: user.id
+		}
+        putCommentByIdPost(_data)
+			.then(res => console.log(res))
+			.catch(e => console.log('Error server : ' + e));
+    };
+
   	return (
 		<div className="col-8d-flex flex-column gap-5 md-7">
 			<div className="post-single-box p-3 p-sm-5">
-				<div className="pb-5 top-area">
+				<div className="pb-1 top-area">
 					<div className="d-flex justify-content-between">
 						<div className="d-flex align-items-center gap-2">
 							<div className="avatar position-relative">
@@ -79,7 +92,6 @@ export default function Post({ post }) {
 							data-bs-toggle="dropdown"
 							aria-expanded="false"
 							>
-							{" "}
 							<FontAwesomeIcon
 								className="text-secondary"
 								icon={faEllipsis}
@@ -116,8 +128,12 @@ export default function Post({ post }) {
 							</ul>
 						</div>
 					</div>
-					<div className="text-wrap overflow-hidden text-start w-100">
-					<p className="my-3">{post.content}</p>
+					<div className="text-wrap overflow-hidden text-start w-100 py-3">
+						<h5>{post.title}</h5>
+						<p className="my-3">{post.content}</p>
+						{/* <div className="container">
+							<img src="../img/Harena-anime1.png" alt="images" className="img" />
+						</div> */}
 					</div>
 				</div>
 					{like.length === 0 ? "" : "👍 "+like.length}
@@ -144,9 +160,14 @@ export default function Post({ post }) {
 								{
 									comment && (comment.map(com => (
 										<div key={com.id} com={com}>
-											<h5>{com.user.username}</h5>
-											<p>
-												{com.content}
+											<p> 
+												<span className="text-primary"><img
+													className="rounded-circle"
+													src={com.user.photo}
+													alt="Profile"
+													width="30"
+													height="30"
+												/> {com.user.username}</span> {com.content}
 											</p>
 										</div>
 									)))
@@ -155,19 +176,17 @@ export default function Post({ post }) {
 						</div>
 					)
 				}
-				<form action="#" className="my-0">
-					<div className="d-flex gap-3">
-						<input
-							type="text"
-							placeholder="write a comment..."
-							className="form-control"
-							required
-						/>
-						<div className="d-flex">
-							<button className="btn btn-primary px-2 px-sm-5 px-lg-6">
-								<FontAwesomeIcon icon={faShare} />
-							</button>
-						</div>
+				<form className="my-0 d-flex gap-3"  onSubmit={handleSubmit(onSubmit)}>
+					<input
+						type="text"
+						placeholder="write a comment..."
+						className="form-control"
+						required {...register("content", { required: true })}
+					/>
+					<div className="d-flex">
+						<button className="btn btn-primary px-2 px-sm-5 px-lg-6" type="submit">
+							Send
+						</button>
 					</div>
 				</form>
 			</div>
