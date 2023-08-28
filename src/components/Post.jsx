@@ -6,34 +6,33 @@ import { addReaction, deleteReaction, getReactionByIdPost } from "../apis/reacti
 import CurrentUserInfo from "../util/Token";
 
 export default function Post({ post }) {
-	const [like, setLike] = useState(0);
+	const [like, setLike] = useState([]);
 
 	useEffect(() => {
 		getReactionByIdPost(post.id)
-			.then(data => setLike(data.length))
+			.then(data => setLike(data))
 			.catch(err => console.log(err));
 		
     }, [post.id]);
 
 	const handleUpdateReaction = (ev) => {
 		ev.preventDefault();
-		let reaction;
-		getReactionByIdPost(post.id)
-			.then(data => {
-				const user = CurrentUserInfo();
+		const user = CurrentUserInfo();
+		console.log(user);
+		let haveReaction = false;
 
-				reaction = data[0];
+		// for (let i = 0; i < like.length; i++) {
+		// 	if (like[i].userId == user.id) {
+		// 		alert("delete")
+		// 		haveReaction = true;
+		// 		deleteReaction(user.id, post.id);
+		// 	}
+		// }
 
-				if (data && reaction.userId == user.id) {
-					alert("delete")
-					deleteReaction(user.id, post.id);
-				} else {
-					alert("add")
-					addReaction(user.id, post.id, "LIKE");
-				}
-			})
-			.catch(err => console.log(err));
-		
+		// if (haveReaction == false) {
+		// 	alert("add")
+		// 	addReaction(user.id, post.id, "LIKE");			
+		// }		
 	}
 
   	return (
@@ -104,7 +103,7 @@ export default function Post({ post }) {
 					<p className="my-3">{post.content}</p>
 					</div>
 				</div>
-					{like === 0 ? "" : "👍 "+like}
+					{like.length === 0 ? "" : "👍 "+like.length}
 				<div className="like-comment-share d-flex align-items-center flex-wrap gap-3 gap-md-0 justify-content-between">
 					<button onClick={handleUpdateReaction} className="btn d-flex align-items-center gap-1 gap-sm-2 text-secondary">
 						<FontAwesomeIcon icon={faThumbsUp} />
