@@ -13,7 +13,6 @@ const getTokenFromCookie = () => {
 
 export async function Login(endpoint, _data) {
     try {
-        console.log(_data);
         const { data } = await axios.post(
                 `${baseURL}${endpoint}`,
                 _data
@@ -42,8 +41,6 @@ export async function Post(endpoint, _data) {
                 _data,
                 config,
             );
-        
-        setTokenInCookie(data.token);
 
         return data;
     } catch (error) {
@@ -57,14 +54,14 @@ export async function Get(endpoint, _data) {
 
         const config = {
                 headers: {
-                Authorization: `Bearer ${token}`,
-                body: _data
-            },
+                    Authorization: `Bearer ${token}`,
+                },
+                body: _data,
         };
 
         const { data } = await axios.get(
                 `${baseURL}${endpoint}`,
-                config
+                config,
         );
 
         return data;
@@ -79,9 +76,9 @@ export async function Put(endpoint, _data) {
 
         const config = {
                 headers: {
-                Authorization: `Bearer ${token}`,
-                body: _data
-            },
+                    Authorization: `Bearer ${token}`,
+                },
+                data: _data,
         };
 
         const { data } = await axios.put(
@@ -101,14 +98,14 @@ export async function Delete(endpoint, _data) {
 
         const config = {
                 headers: {
-                Authorization: `Bearer ${token}`,
-                body: _data
-            },
+                    Authorization: `Bearer ${token}`,
+                },
+                data: _data,
         };
 
         const { data } = await axios.delete(
                 `${baseURL}${endpoint}`,
-                config
+                config,
             );
 
         return data;
