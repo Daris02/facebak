@@ -4,14 +4,27 @@ import { faThumbsUp, faComment } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { addReaction, deleteReaction, getReactionByIdPost } from "../apis/reaction/reaction.api";
 import CurrentUserInfo from "../util/Token";
+import { getCommentByIdPost } from "../apis/comment/comment.api";
 
 export default function Post({ post }) {
 	const [like, setLike] = useState([]);
+	const [comment, setComment] = useState([]);
+	const [isDropdownVisible, setDropdownVisible] = useState(false);
 
 	useEffect(() => {
 		getReactionByIdPost(post.id)
 			.then(data => {
 				setLike(data);
+			})
+			.catch(err => console.log(err));
+		
+    }, [post.id, post.reaction]);
+
+	useEffect(() => {
+		getCommentByIdPost(post.id)
+			.then(data => {
+				console.log(data);
+				setComment(data);
 			})
 			.catch(err => console.log(err));
 		
@@ -32,6 +45,11 @@ export default function Post({ post }) {
 		if (haveReaction == false) {
 			addReaction(user.id, post.id, "LIKE");
 		}
+	}
+
+	const handleVisible = (ev) => {
+		ev.preventDefault();
+		setDropdownVisible(!isDropdownVisible)
 	}
 
   	return (
@@ -108,7 +126,9 @@ export default function Post({ post }) {
 						<FontAwesomeIcon icon={faThumbsUp} />
 						Like
 					</button>
-					<button className="btn d-flex align-items-center gap-1 gap-sm-2 text-secondary">
+					<button className="btn d-flex align-items-center gap-1 gap-sm-2 text-secondary"
+						onClick={handleVisible}
+					>
 						<FontAwesomeIcon icon={faComment} />
 						Comment
 					</button>
@@ -117,6 +137,24 @@ export default function Post({ post }) {
 						Share
 					</button>
 				</div>
+				{
+					isDropdownVisible && (
+						<div className="dropdown-content">
+							<div className="container">
+								{
+									comment && (comment.map(com => (
+										<div key={com.id} com={com}>
+											<h5>{com.user.username}</h5>
+											<p>
+												{com.content}
+											</p>
+										</div>
+									)))
+								}
+							</div>
+						</div>
+					)
+				}
 				<form action="#" className="my-0">
 					<div className="d-flex gap-3">
 						<input
