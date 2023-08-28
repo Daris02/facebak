@@ -18,21 +18,20 @@ export default function Post({ post }) {
 	const handleUpdateReaction = (ev) => {
 		ev.preventDefault();
 		const user = CurrentUserInfo();
-		console.log(user);
 		let haveReaction = false;
 
-		// for (let i = 0; i < like.length; i++) {
-		// 	if (like[i].userId == user.id) {
-		// 		alert("delete")
-		// 		haveReaction = true;
-		// 		deleteReaction(user.id, post.id);
-		// 	}
-		// }
+		for (let i = 0; i < like.length; i++) {
+			if (like[i].userId == user.id) {
+				alert("delete")
+				haveReaction = true;
+				deleteReaction(user.id, post.id);
+			}
+		}
 
-		// if (haveReaction == false) {
-		// 	alert("add")
-		// 	addReaction(user.id, post.id, "LIKE");			
-		// }		
+		if (haveReaction == false) {
+			alert("add")
+			addReaction(user.id, post.id, "LIKE");			
+		}		
 	}
 
   	return (
