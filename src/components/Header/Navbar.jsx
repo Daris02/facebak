@@ -10,7 +10,7 @@ const Navbar = ({ user }) => {
 			<nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
 				<div className="d-flex justify-content-between w-100">
 					<div className="w-25">
-						<Link to="/user/home" className="navbar-brand">
+						<Link to="/user/profil" className="navbar-brand">
 							FACEBAK
 						</Link>
 					</div>
