@@ -3,7 +3,7 @@ import { getAllPosts } from '../../apis/post/post.api.js';
 import Post from "../../components/Post";
 
 const Home = () => {
-    const [posts, setPosts] = useState([{}]);
+    const [posts, setPosts] = useState([]);
 
     useEffect(() => {
         getAllPosts()
