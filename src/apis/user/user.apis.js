@@ -1,7 +1,7 @@
-import { Get, Post } from '../baseApi';
+import { Get, Login, Post } from '../baseApi';
 
 export function authUser({username, email, password}) {
-    return Post('/users/login', {username, email, password});
+    return Login('/users/login', {username, email, password});
 }
 
 export async function getAllUsers() {
