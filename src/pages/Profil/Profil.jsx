@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function UserProfile() {
+function UserProfile({newName, newBio}) {
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
   const [settingsVisible, setSettingsVisible] = useState(false);

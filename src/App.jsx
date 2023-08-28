@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import Home from './pages/Home/Home';
 import Message from './pages/Message/Message';
 import Notification from './pages/Notification/Notification';
+import Profil from './pages/Profil/Profil';
 
 function App() {
 
