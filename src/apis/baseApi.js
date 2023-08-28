@@ -13,9 +13,18 @@ const getTokenFromCookie = () => {
 
 export async function Post(endpoint, _data) {
     try {
+        const token = getTokenFromCookie();
+
+        const config = {
+                headers: {
+                Authorization: `Bearer ${token}`,
+                body: _data
+            },
+        };
+
         const { data } = await axios.post(
                 `${baseURL}${endpoint}`,
-                _data
+                config
             );
         
         setTokenInCookie(data.token);
@@ -81,7 +90,7 @@ export async function Delete(endpoint, _data) {
             },
         };
 
-        const { data } = await axios.put(
+        const { data } = await axios.delete(
                 `${baseURL}${endpoint}`,
                 config
             );
