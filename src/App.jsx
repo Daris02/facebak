@@ -18,6 +18,7 @@ function App() {
 					<Route path='/user/home' element={<Home />} />
 					<Route path='/user/message' element={<Message  />} />
 					<Route path='/user/notification' element={<Notification />} />
+					<Route path='/user/profil' element={<Profil />} />
 				</Route>
 			</Routes>
 		</>
