@@ -11,6 +11,22 @@ const getTokenFromCookie = () => {
     return Cookies.get('token');
 };
 
+export async function Login(endpoint, _data) {
+    try {
+        console.log(_data);
+        const { data } = await axios.post(
+                `${baseURL}${endpoint}`,
+                _data
+            );
+        
+        setTokenInCookie(data.token);
+
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export async function Post(endpoint, _data) {
     try {
         const token = getTokenFromCookie();
