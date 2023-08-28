@@ -73,17 +73,18 @@ export async function Get(endpoint, _data) {
 export async function Put(endpoint, _data) {
     try {
         const token = getTokenFromCookie();
-
+        
         const config = {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
-                data: _data,
+                body: _data
         };
 
         const { data } = await axios.put(
                 `${baseURL}${endpoint}`,
-                config
+                _data,
+                config,
             );
 
         return data;
