@@ -11,7 +11,6 @@ const Login = () => {
 
 	const onSubmit = (data) => {
 		authUser(data).then(res => {
-			console.log(res);
 			if(res.id) {
 		        window.location = '/user/home'
 		    }
