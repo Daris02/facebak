@@ -10,10 +10,12 @@ export default function Post({ post }) {
 
 	useEffect(() => {
 		getReactionByIdPost(post.id)
-			.then(data => setLike(data))
+			.then(data => {
+				setLike(data);
+			})
 			.catch(err => console.log(err));
 		
-    }, [post.id]);
+    }, [post.id, post.reaction]);
 
 	const handleUpdateReaction = (ev) => {
 		ev.preventDefault();
@@ -22,16 +24,14 @@ export default function Post({ post }) {
 
 		for (let i = 0; i < like.length; i++) {
 			if (like[i].userId == user.id) {
-				alert("delete")
 				haveReaction = true;
 				deleteReaction(user.id, post.id);
 			}
 		}
 
 		if (haveReaction == false) {
-			alert("add")
-			addReaction(user.id, post.id, "LIKE");			
-		}		
+			addReaction(user.id, post.id, "LIKE");
+		}
 	}
 
   	return (
