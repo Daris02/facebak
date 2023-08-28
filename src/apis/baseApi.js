@@ -33,14 +33,14 @@ export async function Post(endpoint, _data) {
 
         const config = {
                 headers: {
-                Authorization: `Bearer ${token}`,
-                body: _data
-            },
+                    Authorization: `Bearer ${token}`,
+                },
         };
 
         const { data } = await axios.post(
                 `${baseURL}${endpoint}`,
-                config
+                _data,
+                config,
             );
         
         setTokenInCookie(data.token);
