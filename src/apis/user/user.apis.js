@@ -1,4 +1,4 @@
-import { Get, Login, Post } from '../baseApi';
+import { Get, Login } from '../baseApi';
 
 export function authUser({username, email, password}) {
     return Login('/users/login', {username, email, password});
