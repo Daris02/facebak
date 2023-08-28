@@ -9,5 +9,5 @@ export async function getAllUsers() {
 }
 
 export async function addUser({email, password, confirmPassword, username}) {
-    return Login('/users', {email, password, confirmPassword, username});
+    return Post('/users', {email, password, confirmPassword, username});
 }
