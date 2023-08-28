@@ -7,6 +7,7 @@ import Home from './pages/Home/Home';
 import Message from './pages/Message/Message';
 import Notification from './pages/Notification/Notification';
 import Profil from './pages/Profil/Profil';
+import CreatePost from './components/post/CreatePost';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
 					<Route path='/user/message' element={<Message  />} />
 					<Route path='/user/notification' element={<Notification />} />
 					<Route path='/user/profil' element={<Profil />} />
+					<Route path='/user/createpost' element={<CreatePost />} />
 				</Route>
 			</Routes>
 		</>
