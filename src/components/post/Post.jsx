@@ -1,29 +1,36 @@
 import React, { useEffect, useState } from "react";
-import { faBan, faBookmark, faEllipsis, faFlag, faShare, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
-import { faThumbsUp, faComment } from "@fortawesome/free-solid-svg-icons";
+import { faBan, faBookmark, faEllipsis, faFlag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { addReaction, deleteReaction, getReactionByIdPost } from "../apis/reaction/reaction.api";
-import CurrentUserInfo from "../util/Token";
-import { getCommentByIdPost, putCommentByIdPost } from "../apis/comment/comment.api";
+import { getReactionByIdPost } from "../../apis/reaction/reaction.api";
+import CurrentUserInfo from "../../util/Token";
+import { getCommentByIdPost, putCommentByIdPost } from "../../apis/comment/comment.api";
 import { useForm } from "react-hook-form";
+import AllButton from "./AllButton";
 
 export default function Post({ post }) {
 	const [like, setLike] = useState([]);
+	const [dislike, setDislike] = useState([]);
 	const [comment, setComment] = useState([]);
 	const [isDropdownVisible, setDropdownVisible] = useState(false);
 
-    const { register, handleSubmit, formState: { errors }, } = useForm({});
+    const { register, handleSubmit } = useForm({});
 
 	const user = CurrentUserInfo();
 
 	useEffect(() => {
 		getReactionByIdPost(post.id)
-			.then(data => {
-				setLike(data);
+			.then((data) => {
+				data.map((elem) => {
+					if (elem.type === 'LIKE') {
+						return setLike([...like, elem])
+					} else if (elem.type === 'DISLIKE') {
+						return setDislike([...dislike, elem])
+					}
+				})
 			})
 			.catch(err => console.log(err));
 		
-    }, [post.id, post.reaction]);
+    }, []);
 
 	useEffect(() => {
 		getCommentByIdPost(post.id)
@@ -33,22 +40,6 @@ export default function Post({ post }) {
 			.catch(err => console.log(err));
 		
     }, [post.id, post.reaction]);
-
-	const handleUpdateReaction = (ev) => {
-		ev.preventDefault();
-		let haveReaction = false;
-
-		for (let i = 0; i < like.length; i++) {
-			if (like[i].userId == user.id) {
-				haveReaction = true;
-				deleteReaction(user.id, post.id);
-			}
-		}
-
-		if (haveReaction == false) {
-			addReaction(user.id, post.id, "LIKE");
-		}
-	}
 
 	const handleVisible = (ev) => {
 		ev.preventDefault();
@@ -61,7 +52,9 @@ export default function Post({ post }) {
 			userId: user.id
 		}
         putCommentByIdPost(_data)
-			.then(res => console.log(res))
+			.then(res => {
+				setComment([...comment, res]);
+			})
 			.catch(e => console.log('Error server : ' + e));
     };
 
@@ -136,46 +129,39 @@ export default function Post({ post }) {
 						</div> */}
 					</div>
 				</div>
-					{like.length === 0 ? "" : "👍 "+like.length}
-				<div className="like-comment-share d-flex align-items-center flex-wrap gap-3 gap-md-0 justify-content-between">
-					<button onClick={handleUpdateReaction} className="btn d-flex align-items-center gap-1 gap-sm-2 text-secondary">
-						<FontAwesomeIcon icon={faThumbsUp} />
-						Like
-					</button>
-					<button className="btn d-flex align-items-center gap-1 gap-sm-2 text-secondary"
-						onClick={handleVisible}
-					>
-						<FontAwesomeIcon icon={faComment} />
-						Comment
-					</button>
-					<button className="btn d-flex align-items-center gap-1 gap-sm-2 text-secondary">
-						<FontAwesomeIcon icon={faShare} />
-						Share
-					</button>
-				</div>
-				{
-					isDropdownVisible && (
-						<div className="dropdown-content">
-							<div className="container">
-								{
-									comment && (comment.map(com => (
-										<div key={com.id} com={com}>
-											<p> 
-												<span className="text-primary"><img
-													className="rounded-circle"
-													src={com.user.photo}
-													alt="Profile"
-													width="30"
-													height="30"
-												/> {com.user.username}</span> {com.content}
-											</p>
-										</div>
-									)))
-								}
+					<AllButton 
+						post={post}
+						like={like}
+						dislike={dislike}
+						setLike={setLike}
+						setDislike={setDislike}
+						FontAwesomeIcon={FontAwesomeIcon}
+						handleSubmit={handleSubmit}
+						handleVisible={handleVisible}
+						/>
+					{
+						isDropdownVisible && (
+							<div className="dropdown-content">
+								<div className="container">
+									{
+										comment && (comment.map(com => (
+											<div key={com.id} com={com}>
+												<p> 
+													<span className="text-primary"><img
+														className="rounded-circle"
+														src={com.user.photo}
+														alt="Profile"
+														width="30"
+														height="30"
+													/> {com.user.username}</span> {com.content}
+												</p>
+											</div>
+										)))
+									}
+								</div>
 							</div>
-						</div>
-					)
-				}
+						)
+					}
 				<form className="my-0 d-flex gap-3"  onSubmit={handleSubmit(onSubmit)}>
 					<input
 						type="text"
