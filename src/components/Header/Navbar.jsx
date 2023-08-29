@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as FA from '@fortawesome/free-solid-svg-icons'
+import CurrentUserInfo from '../../util/Token';
 
-const Navbar = ({ user }) => {
+const Navbar = () => {
+	const user = CurrentUserInfo();
 
 	return (
 		<>
@@ -39,6 +41,11 @@ const Navbar = ({ user }) => {
 								<li className="nav-item">
 									<Link to="/user/notification" className="nav-link">
 										<FontAwesomeIcon icon={FA.faBell} /> Notification
+									</Link>
+								</li>
+								<li className="nav-item">
+									<Link to="/user/profil" className="nav-link">
+										<FontAwesomeIcon icon={FA.faUser} /> {user.username}
 									</Link>
 								</li>
 								<li className="nav-item">

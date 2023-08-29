@@ -9,7 +9,6 @@ const CurrentUserInfo = () => {
       return payload;
     } catch (error) {
       console.error('Error decoding token:', error);
-      return null;
     }
 };
 

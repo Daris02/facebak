@@ -28,10 +28,12 @@ const Login = () => {
 	};
 
 	return (
+		<>
+			<h2 className='text-center text-primary mt-5 mx-auto position-absolute top-0 start-50 translate-middle-x'>FACEBAK</h2>
 		<div className="login d-flex justify-content-center align-items-center vh-100 bg-primary-ligth">
 			<div className={border}>
 				<form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column gap-2">
-					<h3 className="text-center">Sign In</h3>
+					<h2 className="text-center">Welcome 🤗</h2>
 					<div className="mb-2">
 						<label htmlFor="username">User name</label>
 						<input type="username" name="username" className="form-control" {...register("username", { required: true })}/>
@@ -64,6 +66,7 @@ const Login = () => {
 				</form>
 			</div>
 		</div>
+		</>	
   	);
 };
 
