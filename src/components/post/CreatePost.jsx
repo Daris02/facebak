@@ -4,7 +4,7 @@ import { addPost } from '../../apis/post/post.api';
 import { useForm } from 'react-hook-form';
 
 export default function CreatePost() {
-    const { register, handleSubmit, formState: { errors }, } = useForm({});
+    const { register, handleSubmit } = useForm({});
 
 	const user = CurrentUserInfo();
 	
@@ -14,9 +14,10 @@ export default function CreatePost() {
 			title: data.title,
 			content: data.content,
 		}
-		console.log(_data);
-        addPost(data)
-			.then(res => console.log(res))
+        addPost(_data)
+			.then(res => {
+				window.location = '/user/home';
+			})
 			.catch(e => console.log('Error server : ' + e));
     };
 
