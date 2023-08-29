@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { getAllPosts } from '../../apis/post/post.api.js';
-import Post from "../../components/Post";
+import Post from "../../components/post/Post";
 
 const Home = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
         getAllPosts()
-            .then(data => setPosts(data))
+            .then(data => setPosts(data.reverse()))
             .catch(err => console.log(err));
     }, []);
 
     return (
         <>
             <div className="container mt-5">
-                <h2>Posts</h2>
+                <h2>News</h2>
                 <div className="mt-5 container-fluid w-50">
                     <div className="row mt-5">
                         {
